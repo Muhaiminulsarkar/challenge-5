@@ -1,8 +1,5 @@
 
-console.log(new Date().toString())
-// Tue Sep 24 2024 01:48:06 GMT+0600 (Bangladesh Standard Time)
-
-
+// for noakhali
 document.getElementById('noakhali-donate').addEventListener('click', function () {
     const inputValue = getInputValue('input-noakhali');
 
@@ -30,8 +27,21 @@ document.getElementById('noakhali-donate').addEventListener('click', function ()
     document.getElementById('main-balance').innerText = leftBalance.toFixed(2);
     document.getElementById('input-noakhali').value = '';
 
+    const historyList = document.getElementById('history-list');
+
+    const historyItem = document.createElement('div');
+    historyItem.className = 'border border-outline rounded-lg p-6 my-5';
+    historyItem.innerHTML = `
+    <h3 class="text-lg font-semibold"> ${inputValue} Taka is Donated for Flood Relief at Noakhali, Bangladesh</h3>
+    <p class="font-normal">${(new Date().toString())}</p>
+
+    `;
+    historyList.appendChild(historyItem);
+
 })
 
+
+// for feni
 document.getElementById('feni-donate').addEventListener('click', function () {
     const inputValue = getInputValue('input-feni');
 
@@ -59,9 +69,20 @@ document.getElementById('feni-donate').addEventListener('click', function () {
     document.getElementById('main-balance').innerText = leftBalance.toFixed(2);
     document.getElementById('input-feni').value = ' ';
 
+    const historyList = document.getElementById('history-list');
 
+    const historyItem = document.createElement('div');
+    historyItem.className = 'border border-outline rounded-lg p-6 my-5';
+    historyItem.innerHTML = `
+    <h3 class="text-lg font-semibold"> ${inputValue} Taka is Donated Flood Relief in Feni, Bangladesh</h3>
+    <p class="font-normal">${(new Date().toString())}</p>
+
+    `;
+    historyList.appendChild(historyItem);
 })
 
+
+// for quota movement
 document.getElementById('quota-donate').addEventListener('click', function () {
     const inputValue = getInputValue('input-quota');
 
@@ -89,6 +110,17 @@ document.getElementById('quota-donate').addEventListener('click', function () {
     document.getElementById('main-balance').innerText = leftBalance.toFixed(2);
     document.getElementById('input-quota').value = '';
 
+    const historyList = document.getElementById('history-list');
+
+    const historyItem = document.createElement('div');
+    historyItem.className = 'border border-outline rounded-lg p-6 my-5';
+    historyItem.innerHTML = `
+    <h3 class="text-lg font-semibold"> ${inputValue} Taka is Aid for Injured in the Quota Movement, Bangladesh</h3>
+    <p class="font-normal">${(new Date().toString())}</p>
+
+    `;
+    historyList.appendChild(historyItem);
+
 })
 
 
@@ -108,7 +140,7 @@ historyTab.addEventListener('click', function () {
 
     donationSection.classList.add('hidden');
     historySection.classList.remove('hidden');
-    
+
 })
 
 donationTab.addEventListener('click', function () {
@@ -120,5 +152,5 @@ donationTab.addEventListener('click', function () {
 
     historySection.classList.add('hidden');
     donationSection.classList.remove('hidden');
-    
+
 })
