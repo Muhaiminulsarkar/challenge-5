@@ -25,6 +25,10 @@
         .btn-color {
             background-color: #B4F461;
         }
+
+        code {
+            color: rgb(238, 80, 23);
+        }
     </style>
 
 
@@ -39,7 +43,8 @@
 
                     <!-- button start -->
                     <div class="navbar-start">
-                        <a href="./index.html" class="btn btn-color px-4 md:px-7 text-xs md:text-base font-semibold">Home</a>
+                        <a href="./index.html"
+                            class="btn btn-color px-4 md:px-7 text-xs md:text-base font-semibold">Home</a>
                     </div>
                     <!-- button end -->
                     <div class="navbar-center flex-col md:flex-row gap-1 md:gap-4">
@@ -56,36 +61,137 @@
                 </div>
             </div>
         </div>
-
-        <!-- button section -->
-        <div class="flex items-center justify-center py-6 gap-3 bg-white">
-            <!-- Donation Button -->
-            <div>
-                <a id="donation-tab" class="btn btn-color px-4 md:px-7 text-sm md:text-base font-semibold">Donation</a>
-            </div>
-            <div>
-                <a id="history-tab" class="btn btn-outline px-4 md:px-9 text-sm md:text-base font-semibold">History</a>
-            </div>
-
-
-        </div>
-
-
     </header>
 
     <body>
 
+        <div class="container mx-auto">
+            <h1 class="text-4xl font-semibold mt-10 mb-7">Importants FAQ !</h1>
+            <div>
+                <div class="join join-vertical w-full">
+                    <div class="collapse collapse-arrow join-item border-base-300 border p-4">
+                        <input type="radio" name="my-accordion-4" checked="checked" />
+                        <div class="collapse-title text-2xl font-medium">What is the Document Object Model (DOM)?</div>
+                        <div class="collapse-content">
+                            <p>The Document Object Model, usually referred to as the DOM, is an essential part of making
+                                websites interactive. It is an interface that allows a programming language to
+                                manipulate the content, structure, and style of a website. JavaScript is the client-side
+                                scripting language that connects to the DOM in an internet browser.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="collapse collapse-arrow join-item border-base-300 border p-4">
+                    <input type="radio" name="my-accordion-4" />
+                    <div class="collapse-title text-2xl font-medium">How do you select an element from the DOM?</div>
+                    <div class="collapse-content">
+                        <p>
+                            <li>The easiest way to access a single element in the DOM is by its unique ID. Here i can
+                                get an
+                                element by ID with the <code>getElementById()</code> method of the <code>document</code>
+                                object. In order to be accessed by ID, the HTML element must have an <code>id</code>
+                                attribute. </li>
+                            <li>The class attribute is used to access one or more specific elements in the DOM.
+                                Here can get all the elements with a given class name with the
+                                <code>getElementsByClassName()</code> method.
+                            </li>
+                            <li>A less specific way to access multiple elements on the page would be by its HTML tag
+                                name. its can access an element by tag with the <code>getElementsByTagName()</code>
+                                method.
+                            </li>
+                            <li>Also can do the same in plain JavaScript with the <code>querySelector()</code> and
+                                <code>querySelectorAll()</code> methods.
+                            </li>
+                        </p>
+                    </div>
+                </div>
+                <div class="join join-vertical w-full">
+                    <div class="collapse collapse-arrow join-item border-base-300 border p-4">
+                        <input type="radio" name="my-accordion-4" />
+                        <div class="collapse-title text-2xl font-medium">What is event delegation in the context of the
+                            DOM, and why is it useful?</div>
+                        <div class="collapse-content">
+                            <p>The idea is that "delegate" the handling of an event to a different element (in this
+                                case, the div, which is a parent element) instead of the actual element (the button)
+                                that received the event.
 
-       
+                                Here's what I mean by that in code: <br>
+                                <code>const div = document.getElementsByTagName("div")[0] <br>
+
+                                    div.addEventListener("click", (event) => { <br>
+                                      if(event.target.tagName === 'BUTTON') { <br>
+                                        console.log("button was clicked") <br>
+                                      } <br>
+                                    })</code> <br>
+
+                                The event object has a target property which contains information about the element that
+                                actually received the event. On target.tagName, we get the name of the tag for the
+                                element, and we check if it's BUTTON.
+
+                                With this code, when i click the button, the event bubbles up to the div which handles
+                                the event. <br>
+                                <br>
+                                <span class="text-lg font-semibold">Benefits of Event Delegation :</span> <br>
+                                Event Delegation is a useful pattern that allows you to write cleaner code, and create
+                                fewer event listeners with similar logic. The main advantage of event delegation is
+                                performance. By attaching just one event listener to a parent element, we can handle
+                                events on many child elements. This is particularly beneficial when dealing with a large
+                                number of elements, as it reduces the memory footprint and setup time for event
+                                listeners.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="join join-vertical w-full">
+                    <div class="collapse collapse-arrow join-item border-base-300 border p-4">
+                        <input type="radio" name="my-accordion-4" />
+                        <div class="collapse-title text-2xl font-medium">How do you manipulate an element's attributes
+                            and styles using the DOM?</div>
+                        <div class="collapse-content">
+                            <p>DOM manipulation allows developers to interact with and modify the structure, style, and
+                                content of web pages. <br>
+                                To manipulate the DOM, we need to access its elements. This is commonly done using the
+                                document object, which represents the entire HTML document. Let's look at a simple
+                                example: <br>
+                                <code>
+                                // Accessing an element by its ID: <br>
+                                const headerElement = document.getElementById('header'); <br>
+                                
+                                // Accessing elements by class name: <br>
+                                const paragraphs = document.getElementsByClassName('paragraph'); <br>
+                                
+                               // Accessing elements by tag name: <br>
+                                const images = document.getElementsByTagName('img'); <br>
+                            </code> <br>
+                                We can also modify the attributes of existing elements. Let's consider changing the
+                                source of an image dynamically: <br>
+
+                                <code>
+                                    // Accessing an image element <br>
+                                    const myImage = document.getElementById('myImage'); <br>
+                                
+                                    // Changing the source attribute of the image <br>
+                                    myImage.src = 'new-image.jpg'; <br>
+                                
+                            
+                            </code> <br>
+                                Here, we access an image element with the ID myImage and change its src attribute to
+                                new-image.jpg, dynamically updating the displayed image.
+
+
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+
+
+
 
 
     </body>
 
-    <footer>
-        <div class="bg-[#F9F7F3] py-12 mt-12"></div>
-
-        </div>
-    </footer>
 
 
 
