@@ -67,7 +67,7 @@ document.getElementById('feni-donate').addEventListener('click', function () {
 
     document.getElementById('balance-feni').innerText = addDonation.toFixed(2);
     document.getElementById('main-balance').innerText = leftBalance.toFixed(2);
-    document.getElementById('input-feni').value = ' ';
+    document.getElementById('input-feni').value = '';
 
     const historyList = document.getElementById('history-list');
 
